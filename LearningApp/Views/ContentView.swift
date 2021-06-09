@@ -11,12 +11,13 @@ struct ContentView: View {
     
     @EnvironmentObject var model: ContentModel
     
+    
     var body: some View {
         
         ScrollView {
             
             LazyVStack {
-                
+                                
                 // Confirm that currentModule is set
                 if model.currentModule != nil {
                 

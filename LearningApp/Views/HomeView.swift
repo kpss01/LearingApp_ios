@@ -36,9 +36,9 @@ struct HomeView: View {
                                     selection: $model.currentContentSelected) {
                                     
                                         // Learning Card
-                                        HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons", time: module.content.time)
+                                    HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons", time: module.content.time)
                                         
-                                    }
+                                }
                                 
                                 NavigationLink(
                                     destination:
@@ -56,6 +56,7 @@ struct HomeView: View {
                                 
                                 
                             }
+                            .padding(.bottom, 10)
                         }
                         
                     }
@@ -65,6 +66,16 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Get Started")
+            .onChange(of: model.currentContentSelected) { changedValue in
+                if changedValue == nil {
+                    model.currentModule = nil
+                }
+            }
+            .onChange(of: model.currentTestSelected) { changedValue in
+                if changedValue == nil {
+                    model.currentModule = nil
+                }
+            }
         }
     }
 }

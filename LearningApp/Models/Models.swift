@@ -34,6 +34,14 @@ class Lesson : Identifiable , Decodable{
     var duration:String
     var explanation:String
     
+    init() {
+        id = 0;
+        title = ""
+        video = ""
+        duration = ""
+        explanation = ""
+    }
+    
 }
 
 class Test: Identifiable , Decodable{
